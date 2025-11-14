@@ -8,7 +8,7 @@ const Nav = () => {
   const [Open, setOpen] = useState(false);
 
   return (
-    <div className='flex justify-between items-center px-5 w-full h-16 bg-[#f5f5fa]'>
+    <div className='flex justify-between items-center px-5 w-full h-16 bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200'>
       <div>
         <img className='lg:w-60 w-50 h-auto' src={image} />
       </div>

@@ -19,6 +19,8 @@ const Nav = () => {
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/create'>Create</NavLink>
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/quizes'>Quizes</NavLink>
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/about'>About</NavLink>
+        <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/login'>Login</NavLink>
+        <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/register'>Register</NavLink>
       </div>
 
       <button onClick={() => setOpen(true)} className='lg:hidden md:hidden'><FaBars /></button>
@@ -34,6 +36,8 @@ const Nav = () => {
         <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/create'>Create</NavLink>
         <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/quizes'>Quizes</NavLink>
         <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/about'>About</NavLink>
+        <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/login'>Login</NavLink>
+        <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/register'>Register</NavLink>
       </div>)}
     </div>
   )

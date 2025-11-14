@@ -71,27 +71,30 @@ const Home = () => {
 
         <div className='flex lg:flex-row md:flex-row md:flex-wrap flex-col lg:justify-center lg:items:center justify-center items-center lg:gap-7 md:gap-10 gap-5 mt-5'>
 
-          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-blue-50'>
+          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-blue-50 border-2 border-blue-400 '>
             <div><FaUserGraduate size={50} className="text-blue-600 border rounded-full object-contain p-1 border-blue-200" /></div>
             <h1 className='mt-5 text-lg'>Learn From Experts</h1>
             <p className='text-center text-md mt-4'>All our courses are taught by experienced industry professionals who share real-world knowledge, practical examples, and career guidance.</p>
           </div>
-          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-orange-50'>
+
+          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-orange-50 border-2 border-orange-400'>
             <div><FaAward size={50} className="text-orange-600 border rounded-full object-contain p-1 " /></div>
             <h1 className='mt-5 text-lg text-center'>Certificate After Completion</h1>
             <p className='text-center text-md mt-4'>Receive a verified certificate when you complete the course. Add it to your resume or LinkedIn profile to showcase your skills to employers.</p>
           </div>
-          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-green-50'>
+
+          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-green-50 border-2 border-green-400'>
             <div><FaInfinity size={50} className="text-green-500 border rounded-full object-contain p-1 " /></div>
             <h1 className='mt-5 text-lg'>Lifetime Access</h1>
             <p className='text-center text-md mt-4'>Once enrolled, you get lifetime access to the course content, including free updates, so you can learn anytime and revisit lessons whenever needed.</p>
           </div>
-          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-pink-50'>
+
+          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-pink-50 border-2 border-pink-400'>
             <div><FaTags size={50} className="text-pink-600 border rounded-full object-contain p-1 " /></div>
             <h1 className='mt-5 text-lg'>Affordable Pricing</h1>
             <p className='text-center text-md mt-4'>Our courses are priced to be student-friendly, offering high-quality education at lower rates without compromising value or content quality.</p>
           </div>
-          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-yellow-50'>
+          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-yellow-50 border-2 border-yellow-400'>
             <div><FaProjectDiagram size={50} className="text-yellow-600 border rounded-full object-contain p-1 " /></div>
             <h1 className='mt-5 text-lg'>Hands-On Projects</h1>
             <p className='text-center text-md mt-4'>Every course includes real, practical projects to help you build a strong portfolio, gain experience, and become fully job-ready.</p>

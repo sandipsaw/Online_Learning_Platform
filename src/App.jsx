@@ -3,7 +3,7 @@ import Mainroute from './Routes/Mainroute'
 import Nav from './Components/Nav'
 const App = () => {
   return (
-    <div className='w-screen'>
+    <div className=''>
       <Nav/>
       <Mainroute/>
     </div>

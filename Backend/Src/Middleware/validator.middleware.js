@@ -30,10 +30,22 @@ const registerUserValidation = [
         .notEmpty()
         .withMessage('lastname is required'),
     body('role')
-        .isEmpty()
+        .notEmpty()
         .withMessage('role is required'),
 
     responeWithValidationErrors    
 ]
 
-module.exports = {registerUserValidation};
+const loginUserValidation = [
+    body('identifier')
+        .isString()
+        .withMessage('identifier must be a string (username or email)')
+        .notEmpty()
+        .withMessage('identifier is required'),
+    body('password')
+        .isLength({ min: 6 })
+        .withMessage('password must be atleast 6 character long'),
+    responeWithValidationErrors
+]
+
+module.exports = {registerUserValidation,loginUserValidation};

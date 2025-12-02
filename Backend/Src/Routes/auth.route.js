@@ -5,6 +5,6 @@ const authMiddleware = require('../Middleware/auth.middleware');
 const router = express.Router();
 
 router.post('/register',validator.registerUserValidation,authController.registerUser)
-router.get('/login',validator.loginUserValidation,authController.loginUser)
+router.post('/login',validator.loginUserValidation,authController.loginUser)
 router.get('/me',authMiddleware.authMiddlewares,authController.getUser)
 module.exports = router

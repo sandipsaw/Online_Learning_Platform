@@ -19,16 +19,6 @@ const registerUserValidation = [
     body('password')
         .isLength({ min: 6 })
         .withMessage('password must be at least 6 charachter long'),
-    body('fullname.firstname')
-        .isString()
-        .withMessage('firstname must be string')
-        .notEmpty()
-        .withMessage('firstname is required'),
-    body('fullname.lastname')
-        .isString()
-        .withMessage('lastname must be string')
-        .notEmpty()
-        .withMessage('lastname is required'),
     body('role')
         .notEmpty()
         .withMessage('role is required'),

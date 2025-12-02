@@ -20,10 +20,6 @@ const userSchema = new mongoose.Schema({
         type:String,
         select:false,
     },
-    fullname:{
-        firstname:{type:String,required:true},
-        lastname:{type:String,required:true},
-    },
     role:{
         type:String,
         enum:['student','teacher','admin'],

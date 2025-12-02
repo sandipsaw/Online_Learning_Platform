@@ -2,16 +2,28 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { FcGoogle } from "react-icons/fc";
 import { VscGithubInverted } from "react-icons/vsc";
+import {useForm} from 'react-hook-form'
+import {toast} from 'react-toastify'
+import {useDispatch} from 'react-redux'
+import { asyncLoginUser } from '../Store/userAction';
 
 const Login = () => {
+    const {register,handleSubmit,reset} = useForm()
+    const dispatch = useDispatch()
+
+    const loginHandler = (user_data) =>{
+        dispatch(asyncLoginUser(user_data))
+        toast.success('login Successfully')
+        reset()
+    }
     return (
         <div className='w-full '>
-            <form className='flex flex-col lg:w-1/3 md:w-2/3 w-1/1 absolute bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200 lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:top-1/3 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 lg:p-10 p-5 lg:rounded-xl lg:mt-8 shadow-lg'>
+            <form onSubmit={handleSubmit(loginHandler)} className='flex flex-col lg:w-1/3 md:w-2/3 w-1/1 absolute bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200 lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:top-1/3 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 lg:p-10 p-5 lg:rounded-xl lg:mt-8 shadow-lg'>
                 <h1 className='lg:text-3xl text-2xl mb-1 text-center text-blue-700 font-medium'>Login to your account</h1>
                 <label className='pb-2 mt-4 font-medium'>Email address</label>
-                <input className='border px-4 py-2 rounded focus:border-blue-500 border-2 outline-none focus:ring-2 focus:ring-blue-300 ' type='email' />
+                <input {...register('identifier')} className='border px-4 py-2 rounded focus:border-blue-500 border-2 outline-none focus:ring-2 focus:ring-blue-300 ' type='text' />
                 <label className='pb-2 mt-4 font-medium'>Password</label>
-                <input className='border px-4 py-2 rounded focus:border-blue-500 border-2 outline-none focus:ring-2 focus:ring-blue-300 ' type='password' />
+                <input {...register('password')} className='border px-4 py-2 rounded focus:border-blue-500 border-2 outline-none focus:ring-2 focus:ring-blue-300 ' type='password' />
                 <div className='flex justify-between items-center mt-1'>
                     <p className='font-medium'>Remember me</p>
                     <p className='text-blue-700 font-medium'>Forgot Password?</p>

@@ -7,6 +7,7 @@ import image from '../images/logo.png'
 const Nav = () => {
   const [Open, setOpen] = useState(false);
 
+ 
   return (
     <div className='flex justify-between items-center px-5 w-full h-16 bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200'>
       <div>

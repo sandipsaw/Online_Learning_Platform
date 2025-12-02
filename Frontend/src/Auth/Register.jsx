@@ -1,18 +1,34 @@
 import React from 'react'
 import { FcGoogle } from "react-icons/fc";
 import { VscGithubInverted } from "react-icons/vsc";
+import {useForm} from 'react-hook-form'
+import { asyncRegisterUser } from '../Store/userAction';
+import {useDispatch} from 'react-redux'
+import { toast } from 'react-toastify';
 
 const Register = () => {
+    const {register,handleSubmit,reset} = useForm();
+    const dispatch = useDispatch()
+
+    const registerHandler =(userData) =>{
+        userData.role = 'student'
+        dispatch(asyncRegisterUser(userData))
+        toast.success("user Registered")
+        reset()
+    }
     return (
         <div className='w-full '>
-            <form className='flex flex-col lg:w-1/3 md:w-2/3 w-1/1 absolute bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200 lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:top-1/3 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 lg:p-10 p-5 lg:rounded-xl lg:mt-8 shadow-lg'>
+            <form onSubmit={handleSubmit(registerHandler)} className='flex flex-col lg:w-1/3 md:w-2/3 w-1/1 absolute bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200 lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 md:top-1/3 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 lg:p-10 p-5 lg:rounded-xl lg:mt-8 shadow-lg'>
                 <h1 className='lg:text-3xl text-2xl mb-1 text-center text-blue-700 font-medium'>Create an Account</h1>
                 <label className='pb-2 mt-4 font-medium'>Username</label>
-                <input className='border px-4 py-2 rounded focus:border-blue-500 border-2 outline-none focus:ring-2 focus:ring-blue-300 ' type='text' />
+                <input {...register('username')} className='border px-4 py-2 rounded focus:border-blue-500 border-2 outline-none focus:ring-2 focus:ring-blue-300 ' type='text' />
+
                 <label className='pb-2 mt-4 font-medium'>Email address</label>
-                <input className='border px-4 py-2 rounded focus:border-blue-500 border-2 outline-none focus:ring-2 focus:ring-blue-300 'type='email' />
+                <input {...register('email')} className='border px-4 py-2 rounded focus:border-blue-500 border-2 outline-none focus:ring-2 focus:ring-blue-300 'type='email' />
+
                 <label className='pb-2 mt-4 font-medium'>Password</label>
-                <input className='border px-4 py-2 rounded focus:border-blue-500 border-2 outline-none focus:ring-2 focus:ring-blue-300 ' type='password' />
+                <input {...register('password')} className='border px-4 py-2 rounded focus:border-blue-500 border-2 outline-none focus:ring-2 focus:ring-blue-300 ' type='password' />
+
                 <div className='flex justify-between items-center mt-1'>
                     <p className='font-medium'>Remember me</p>
                     <p className='text-blue-700 font-medium'>Forgot Password?</p>

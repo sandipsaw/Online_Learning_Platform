@@ -4,7 +4,6 @@ const userModel = require('../model/userModels');
 
 const authMiddlewares = async (req,res,next) => {
     const {token}= req.cookies
-    console.log(token);
     
     if (!token) {
         return res.status(401).json({ message: "invalid token" })

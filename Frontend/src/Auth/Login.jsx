@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink,useNavigate } from 'react-router-dom'
 import { FcGoogle } from "react-icons/fc";
 import { VscGithubInverted } from "react-icons/vsc";
 import {useForm} from 'react-hook-form'
@@ -10,11 +10,13 @@ import { asyncLoginUser } from '../Store/userAction';
 const Login = () => {
     const {register,handleSubmit,reset} = useForm()
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const loginHandler = (user_data) =>{
         dispatch(asyncLoginUser(user_data))
         toast.success('login Successfully')
         reset()
+        navigate('/')
     }
     return (
         <div className='w-full '>

@@ -1,14 +1,15 @@
 import axios from "../Api/axios.config";
+import { loaduser } from '../Store/userSlice'
 
 export const asyncRegisterUser = (userData) => async (dispatch, getState) => {
     try {
         const res = await axios.post('/api/auth/register', userData);
-        
+
     } catch (error) {
         console.log(error);
     }
 }
-export const asyncLoginUser = (user_data) => async (dispatch, getState) => {   
+export const asyncLoginUser = (user_data) => async (dispatch, getState) => {
     try {
         const res = await axios.post('/api/auth/login', user_data)
     } catch (error) {
@@ -17,10 +18,20 @@ export const asyncLoginUser = (user_data) => async (dispatch, getState) => {
     }
 }
 
-export const asyncGetUser = ()=>async(dispatch,getState) =>{
-    const res = await axios.get('/api/auth/me')
-    return res.data.user.username;
-   
-    
-    
+export const asyncGetUser = () => async (dispatch, getState) => {
+        const res = await axios.get('/api/auth/me')
+        if (res) { dispatch(loaduser(res.data.user)) }
+        else {
+            console.log("user not looged in");
+        }
+}
+
+export const asyncLogOutUser = () => async (dispatch, getState) => {
+    try {
+        const res = await axios.get('/api/auth/logout')
+        console.log(res);
+        
+    } catch (error) {
+        console.log(error);
+    }
 }

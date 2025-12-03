@@ -1,13 +1,32 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import { FaBars } from "react-icons/fa6";
 import { RiCloseLargeFill } from "react-icons/ri";
 import image from '../images/logo.png'
+import { useDispatch, useSelector} from 'react-redux'
+import { asyncGetUser } from '../Store/userAction'
+import { useEffect } from 'react'
+import {asyncLogOutUser} from '../Store/userAction'
+import {toast} from 'react-toastify'
 const Nav = () => {
   const [Open, setOpen] = useState(false);
 
- 
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const data=useSelector((state)=>state.userReducers.users)
+  console.log(data);
+  
+  useEffect(()=>{
+    dispatch(asyncGetUser())
+  },[])
+
+  const logoutHandler = () =>{
+    if(dispatch(asyncLogOutUser())){
+        toast.success("user logout successfully")
+        navigate('/')
+    }
+  }
   return (
     <div className='flex justify-between items-center px-5 w-full h-16 bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200'>
       <div>
@@ -20,12 +39,19 @@ const Nav = () => {
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/create'>Create</NavLink>
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/quizes'>Quizes</NavLink>
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/about'>About</NavLink>
+        
+        {data.length !=0 ? (
+        <>
+        <button onClick={logoutHandler}>Logut</button>
+        </>):
+        (<>
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/login'>Login</NavLink>
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/register'>Register</NavLink>
+        </>)}
+          
       </div>
-
       <button onClick={() => setOpen(true)} className='lg:hidden md:hidden'><FaBars /></button>
-
+      
       {Open && (
         <div className='text-xl font-medium flex lg:hidden  flex-col absolute -top-5 left-0 bg-[#f5f5fa] z-1  w-full items-center gap-5 min-h-screen pt-5'>
         <div className='flex justify-between items-center bg-[#f5f5fa] w-full p-2 h-16 px-5'>
@@ -37,11 +63,19 @@ const Nav = () => {
         <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/create'>Create</NavLink>
         <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/quizes'>Quizes</NavLink>
         <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/about'>About</NavLink>
+        
+        {data.length !=0 ? (
+        <>
+        <button onClick={logoutHandler}>Logut</button>
+        </>):
+        (<>
         <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/login'>Login</NavLink>
         <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/register'>Register</NavLink>
+        </>)}
       </div>)}
     </div>
   )
 }
+
 
 export default Nav

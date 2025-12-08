@@ -3,11 +3,8 @@ import Mainroute from './Routes/Mainroute'
 import Nav from './Components/Nav'
 
 const App = () => {
-
-  
-
   return (
-    <div className=''>
+    <div className='bg-[#f8fafc]'>
       <Nav/>
       <Mainroute/>
     </div>

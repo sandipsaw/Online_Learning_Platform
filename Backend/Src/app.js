@@ -1,5 +1,6 @@
 const express = require('express')
 const authRoutes = require('./Routes/auth.route')
+const courseRoutes = require('./Routes/course.routes')
 const cookieParser = require('cookie-parser')
 const cors = require("cors");
 
@@ -12,5 +13,6 @@ app.use(cookieParser())
 app.use(express.json());
 
 app.use('/api/auth',authRoutes)
+app.use('/api/course',courseRoutes)
 
 module.exports = app

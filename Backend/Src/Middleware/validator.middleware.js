@@ -20,9 +20,9 @@ const registerUserValidation = [
         .isLength({ min: 6 })
         .withMessage('password must be at least 6 charachter long'),
     body('role')
-        .notEmpty()
-        .withMessage('role is required'),
-
+        .optional()
+        .isIn(['student', 'teacher'])
+        .withMessage('role must be either student or teacher'),
     responeWithValidationErrors    
 ]
 

@@ -1,8 +1,25 @@
 import React from 'react'
-
+import CourseCard from '../Components/courseCard'
+import { useSelector } from 'react-redux'
 const Courses = () => {
+  const courses = useSelector((state) => state.courseReducers.courses.course)
+  console.log("courses --> ",courses);
+  
   return (
-    <div>Courses</div>
+    <div className="min-h-screen flex flex-wrap bg-slate-100 border">
+      <section className="w-full px-4 md:px-8 lg:px-12 py-8 md:py-12 bg-slate-50">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
+                Popular Courses
+            </h2>
+
+            <div className="grid gap-5 md:gap-6 lg:gap-8 lg:grid-cols-4 md:grid-cols-2 p-1 ">
+                {courses.map((course) => (
+                    <CourseCard key={course.id} course={course} />
+                ))}
+            </div>
+        </section>
+    </div>
+
   )
 }
 

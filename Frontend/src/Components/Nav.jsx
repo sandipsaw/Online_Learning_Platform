@@ -28,24 +28,24 @@ const Nav = () => {
     }
   }
   return (
-    <div className='flex justify-between items-center px-5 w-full h-16 bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200'>
+    <div className='flex justify-between items-center px-5 w-full h-16  fixed top-0 left-0 bg-white/70 backdrop-blur-md shadow-sm z-50 '>
       <div>
-        <img className='lg:w-60 w-50 h-auto' src={image} />
+        <img className='lg:w-50 w-50 h-auto' src={image} />
       </div>
 
-      <div className='text-lg font-medium lg:flex md:flex hidden items-center gap-5'>
+      <div className='text-lg font-medium lg:flex md:flex hidden items-center gap-8'>
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/'>Home</NavLink>
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/courses'>Courses</NavLink>
-        <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/create'>Create</NavLink>
-        <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/quizes'>Quizes</NavLink>
+        <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/quizes'>Quizzes</NavLink>
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/about'>About</NavLink>
+        <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/create'>Create</NavLink>
         
         {data.length !=0 ? (
         <>
         <button onClick={logoutHandler}>Logut</button>
         </>):
         (<>
-        <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/login'>Login</NavLink>
+        <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/login'>login</NavLink>
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/register'>Register</NavLink>
         </>)}
           

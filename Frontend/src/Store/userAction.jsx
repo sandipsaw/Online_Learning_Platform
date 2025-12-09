@@ -11,10 +11,11 @@ export const asyncRegisterUser = (userData) => async (dispatch, getState) => {
 }
 export const asyncLoginUser = (user_data) => async (dispatch, getState) => {
     try {
-        const res = await axios.post('/api/auth/login', user_data)
+        const res = await axios.post('/api/auth/login', user_data);
+
     } catch (error) {
         console.log(error);
-
+        dispatch(asyncGetUser())
     }
 }
 

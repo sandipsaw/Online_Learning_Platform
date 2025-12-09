@@ -3,10 +3,13 @@ import image from '../images/file.png'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncCreateCourse } from '../Store/courseAction'
+import {toast} from 'react-toastify'
+import {useNavigate} from 'react-router-dom'
 const Create = () => {
 
   const { register, reset, handleSubmit } = useForm();
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const submitHandler = (courseData) => {
 
     console.log(courseData);
@@ -23,12 +26,15 @@ const Create = () => {
     if (courseData.thumbnail && courseData.thumbnail[0]) {
       formData.append('thumbnail', courseData.thumbnail[0]);
     }
-
     dispatch(asyncCreateCourse(formData));
+    reset();
+    navigate('/courses')
+    toast.success("course created successfully")
+
   }
   return (
-    <div className='lg:pt-10 md:pt-10 lg:pl-30 lg:pr-30 md:pl-15 md:pr-15 flex flex-col items-center w-full h-full '>
-      <h1 className='lg:block md:block hidden lg:text-6xl md:text-4xl text-3xl font-bold tracking-tight max-w-5xl  mx-auto text-center'>Turn Your Knowledge Into a Professional Course</h1>
+    <div className='lg:pt-10 md:pt-10 lg:pl-30 lg:pr-30 md:pl-15 md:pr-15 flex flex-col text-gray-800 items-center w-full h-full '>
+      <h1 className='lg:block md:block hidden lg:text-6xl md:text-4xl text-3xl  tracking-tight font-bold  max-w-5xl  mx-auto text-center'>Turn Your Knowledge Into a Professional Course</h1>
       <p className='text-[20px] lg:block md:hidden hidden text-center pt-10 w-4/5 leading-relaxed mx-auto max-w-5xl'>Your skills have value — now is the time to monetize them.  Customize your course with thumbnails, pricing, and categories to reach the right audience and build a powerful learning ecosystem.</p>
 
 
@@ -51,13 +57,14 @@ const Create = () => {
           <label className='pb-2 mt-4 font-medium'>Category</label>
           <select {...register('category')} id="category" name="category" className='p-2 outline-none border rounded bg-[#f4f7ff]'>
             <option value="">Select a category</option>
-            <option value="web-development">Web Development</option>
+            <option value="web-development">Web Design</option>
             <option value="frontend">Frontend</option>
             <option value="backend">Backend</option>
             <option value="fullstack">Full Stack</option>
             <option value="ui-ux">UI/UX Design</option>
             <option value="data-structures">Data Structures & Algorithms</option>
-            <option value="programming">Programming Basics</option>
+            <option value="Database">Database</option>
+            <option value="programming">Programming</option>
           </select>
 
           <label className='pb-2 mt-4 font-medium'>Thumbnail</label>

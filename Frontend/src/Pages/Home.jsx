@@ -61,38 +61,43 @@ const Home = () => {
 
   return (
     <div className='w-100% text-[#3c3c3c]'>
+      <div className=' w-full bg-gradient-to-r from-[#EAF3FE] via-[#FFFFFF] to-[#FFFFFF] '>
 
-      <div className='flex lg:justify-around md:justify-around items-center w-full bg-blue-500 '>
-        <div>
-          <img className='lg:w-150 md:w-100 w-90' src={header} />
+        <div className=' lg:flex-row md:flex lg:justify-around md:justify-around lg:items-center pl-5 pr-5 '>
+          <div className=''>
+            <img className='lg:w-150 md:w-90 w-screen lg:ml-10 relative' src={header} />
+
+          </div>
+          <div className='lg:w-1/2 md:w-7/8 lg:ml-50 md:ml-10 -pt-16 lg:block md-block '>
+            <p className='lg:text-xl md:text-lg text-sm font-medium bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text'>Start your favouriate course</p>
+            <h1 className='lg:text-6xl md:text-4xl lg:max-w-2xl max-w-full text-4xl font-semibold font-sans lg:mt-3 mt-1 text-black '>Now learning from <br/>anywhere and build <br /> your <span className=' bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text'>bright Future</span></h1>
+
+            <p className='lg:text-2xl md:text-xl text-sm text-md font-medium lg:mt-9 md:mt-4 lg:block md:block hidden lg:max-w-xl md:max-w-11/13 text-black'>Our mission is to help you discover the best learning resources and grow with expert-led courses.</p>
+            <button className='lg:mt-5 md:mt-3 mt-2 lg:text-lg md:text-lg text-md "px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:px-5 md:py-2 px-3 py-2 lg:w-40 w-full'>Start Learning</button>
+          </div>
         </div>
-        <div className='lg:w-1/2 md:w-5/10  -pt-16 lg:block md-block '>
-          <p className='lg:text-2xl md:text-xl text-sm font-medium'>Start your favouriate course</p>
-          <h1 className='lg:text-6xl md:text-4xl text-2xl font-semibold font-sans lg:mt-3 mt-1 '>Now learning from anywhere and build <br /> your <span className='text-blue-300'>bright carrer</span></h1>
-          <p className='lg:text-2xl md:text-2xl text-sm text-md font-medium lg:mt-7 mt-1 lg:block md:block hidden'>Our mission is to help people to find the<br /> best course and learn with eperts</p>
-          <button className='lg:mt-5 md:mt-3 mt-2 lg:text-lg md:text-lg text-sm bg-blue-700 font-medium  text-blue-200 rounded lg:px-10 lg:py-4 md:px-5 md:py-2 px-3 py-2 '>Start A  Course</button>
-        </div>
+
+        
       </div>
       {/* // ---------------------------------- Choose the gategory ---------------------------------------------------------------------- */}
-      <div className=' rounded-xl  lg:px-15 md:px-5 px-3 lg:mt-10 md:mt-5 mt-3'>
-        <h1 className='lg:text-4xl md:text-2xl text-md lg:font-medium font-semibold text-center'>Choose the category you want to learn</h1>
-        <div className=' lg:p-7 md:p-4 p-3 lg:mt-3 md:mt-2 mt-1 text-blue-700 lg:text-lg md:text-lg text-md rounded bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200'>
-          <Slider {...categorySettings}>
-            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Development</div>
-            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Mobile App</div>
-            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>AI & ML</div>
-            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>DevOps</div>
-            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Cloudinary</div>
-            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>UI/UX Design</div>
-            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Data Science</div>
-            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Languages</div>
-            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Soft Skills </div>
-            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Blockchain</div>
-            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Web3</div>
-          </Slider>
+<div className=' rounded-xl  lg:px-15 md:px-5 px-3   mt-3'>
+          <div className=' lg:p-7 md:p-4 p-3 lg:mt-3 md:mt-2 mt-1 text-blue-700 lg:text-lg md:text-lg text-md rounded bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200 border '>
+            <Slider {...categorySettings}>
+              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Development</div>
+              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Mobile App</div>
+              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>AI & ML</div>
+              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>DevOps</div>
+              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Cloudinary</div>
+              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>UI/UX Design</div>
+              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Data Science</div>
+              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Languages</div>
+              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Soft Skills </div>
+              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Blockchain</div>
+              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Web3</div>
+            </Slider>
+          </div>
+          <hr className='lg:hidden mt-5' />
         </div>
-        <hr className='lg:hidden mt-5' />
-      </div>
       {/* //------------------------------------------ Why Choose Us ------------------------------------------------------------- */}
       <div className='lg:mt-15 md:mt-10 mt-5'>
         <div className='text-center'>
@@ -146,7 +151,7 @@ const Home = () => {
           <img className='lg:w-35 md:w-30 w-15 h-10 ' src="https://cms-images.udemycdn.com/96883mtakkm8/7guDRVYa2DZD0wD1SyxREP/b704dfe6b0ffb3b26253ec36b4aab505/ericsson_logo.svg" alt="Ericsson logo" />
         </div>
       </div>
-{/* ----------------------------------------------------------------------------------------------------------- */}
+      {/* ----------------------------------------------------------------------------------------------------------- */}
       <div className="w-full p-7 text-[#3c3c3c] font-medium lg:mt-10  ">
         <h1 className='lg:text-4xl text-2xl mb-5 text-center'>What Our Students Say</h1>
         <Slider {...testimonialSettings}>
@@ -229,7 +234,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          
+
         </Slider>
       </div>
 

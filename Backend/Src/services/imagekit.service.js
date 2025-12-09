@@ -5,11 +5,11 @@ const imagekit = new Imagekit({
     privateKey:process.env.IMAGEKIT_PRIVATE_KEY,
     urlEndpoint:process.env.IMAGEKIT_URL_ENDPOINT
 })
-const uploadImage = async({buffer,folder='/course'}) =>{
+const uploadImage = async({buffer}) =>{
     const res = await imagekit.upload({
         file:buffer,
         fileName:uuidv4(),
-        folder
+        folder:"course"
     })
     return{
         url:res.url,

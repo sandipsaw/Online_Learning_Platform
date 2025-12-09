@@ -28,9 +28,10 @@ const courseSchema = new mongoose.Schema({
     }],
     teacher: {
         type: mongoose.Schema.Types.ObjectId,
+        ref:"user",
         required: true
     }
-})
+},{timestamps:true})
 
 const courseModel = mongoose.model('course', courseSchema);
 

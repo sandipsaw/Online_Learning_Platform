@@ -5,7 +5,10 @@ import header from '../images/header.png'
 import std1 from '../images/std1.png'
 import Slider from "react-slick";
 import { FaUserGraduate, FaInfinity, FaAward, FaTags, FaProjectDiagram } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom'
 const Home = () => {
+
+  const navigate = useNavigate();
   const categorySettings = {
     dots: false,
     infinite: true,
@@ -63,41 +66,41 @@ const Home = () => {
     <div className='w-100% text-[#3c3c3c]'>
       <div className=' w-full bg-gradient-to-r from-[#EAF3FE] via-[#FFFFFF] to-[#FFFFFF] '>
 
-        <div className=' lg:flex-row md:flex lg:justify-around md:justify-around lg:items-center pl-5 pr-5 '>
+        <div className='md:mt-25 lg:mt-0 lg:flex-row md:flex lg:justify-around md:justify-around lg:items-center pl-5 pr-5 '>
           <div className=''>
-            <img className='lg:w-150 md:w-90 w-screen lg:ml-10 relative' src={header} />
+            <img className='lg:w-150 md:w-100 w-screen lg:ml-10 ' src={header} />
 
           </div>
           <div className='lg:w-1/2 md:w-7/8 lg:ml-50 md:ml-10 -pt-16 lg:block md-block '>
             <p className='lg:text-xl md:text-lg text-sm font-medium bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text'>Start your favouriate course</p>
-            <h1 className='lg:text-6xl md:text-4xl lg:max-w-2xl max-w-full text-4xl font-semibold font-sans lg:mt-3 mt-1 text-black '>Now learning from <br/>anywhere and build <br /> your <span className=' bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text'>bright Future</span></h1>
+            <h1 className='lg:text-6xl md:text-4xl lg:max-w-2xl max-w-full text-4xl font-semibold font-sans lg:mt-3 mt-1 text-black '>Now learning from <br />anywhere and build <br className='lg:block' /> your <span className=' bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text'>bright Future</span></h1>
 
             <p className='lg:text-2xl md:text-xl text-sm text-md font-medium lg:mt-9 md:mt-4 lg:block md:block hidden lg:max-w-xl md:max-w-11/13 text-black'>Our mission is to help you discover the best learning resources and grow with expert-led courses.</p>
-            <button className='lg:mt-5 md:mt-3 mt-2 lg:text-lg md:text-lg text-md "px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:px-5 md:py-2 px-3 py-2 lg:w-40 w-full'>Start Learning</button>
+            <button onClick={() => navigate('/courses')} className='lg:mt-5 md:mt-3 mt-4 lg:text-lg md:text-lg text-md "px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:px-5 md:py-2 px-3 py-2 lg:w-40 w-50 mb-4 cursor-pointer'>Start Learning</button>
           </div>
         </div>
 
-        
+
       </div>
       {/* // ---------------------------------- Choose the gategory ---------------------------------------------------------------------- */}
-<div className=' rounded-xl  lg:px-15 md:px-5 px-3   mt-3'>
-          <div className=' lg:p-7 md:p-4 p-3 lg:mt-3 md:mt-2 mt-1 text-blue-700 lg:text-lg md:text-lg text-md rounded bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200 border '>
-            <Slider {...categorySettings}>
-              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Development</div>
-              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Mobile App</div>
-              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>AI & ML</div>
-              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>DevOps</div>
-              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Cloudinary</div>
-              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>UI/UX Design</div>
-              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Data Science</div>
-              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Languages</div>
-              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Soft Skills </div>
-              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Blockchain</div>
-              <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Web3</div>
-            </Slider>
-          </div>
-          <hr className='lg:hidden mt-5' />
+      <div className=' rounded-xl  lg:px-15 md:px-5 px-3   mt-3'>
+        <div className=' lg:p-7 md:p-4 p-3 lg:mt-3 md:mt-2 mt-1 text-blue-700 lg:text-lg md:text-lg text-md rounded bg-gradient-to-r from-slate-200 via-blue-200 to-slate-200 '>
+          <Slider {...categorySettings}>
+            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Development</div>
+            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Mobile App</div>
+            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>AI & ML</div>
+            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>DevOps</div>
+            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Cloudinary</div>
+            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>UI/UX Design</div>
+            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Data Science</div>
+            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Languages</div>
+            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Soft Skills </div>
+            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Blockchain</div>
+            <div className='lg:px-7 lg:py-4 md:px-2 md:p-3 px-0  py-1 text-center bg-white rounded'>Web3</div>
+          </Slider>
         </div>
+        <hr className='lg:hidden mt-5' />
+      </div>
       {/* //------------------------------------------ Why Choose Us ------------------------------------------------------------- */}
       <div className='lg:mt-15 md:mt-10 mt-5'>
         <div className='text-center'>

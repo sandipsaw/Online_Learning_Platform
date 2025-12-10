@@ -5,7 +5,7 @@ const Courses = () => {
   const courses = useSelector((state) => state.courseReducers.courses.course)
   console.log("courses --> ",courses);
   
-  return (
+  return courses ? (
     <div className="min-h-screen flex flex-wrap bg-slate-100 border">
       <section className="w-full px-4 md:px-8 lg:px-12 py-8 md:py-12 bg-slate-50">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
@@ -20,7 +20,7 @@ const Courses = () => {
         </section>
     </div>
 
-  )
+  ) : "loading..."
 }
 
 export default Courses

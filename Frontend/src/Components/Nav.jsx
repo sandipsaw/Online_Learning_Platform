@@ -38,7 +38,7 @@ const Nav = () => {
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/courses'>Courses</NavLink>
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/quizes'>Quizzes</NavLink>
         <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/about'>About</NavLink>
-        <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/create'>Create</NavLink>
+        <NavLink className={(e) => e.isActive ? "text-blue-500 " : ""} to='/create/course'>Create</NavLink>
         
         {data.length !=0 ? (
         <>
@@ -60,7 +60,7 @@ const Nav = () => {
         </div>
         <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/'>Home</NavLink>
         <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/courses'>Courses</NavLink>
-        <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/create'>Create</NavLink>
+        <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/create/course'>Create</NavLink>
         <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/quizes'>Quizes</NavLink>
         <NavLink onClick={()=>setOpen(false)} className={(e) => e.isActive ? "text-blue-500 " : ""} to='/about'>About</NavLink>
         

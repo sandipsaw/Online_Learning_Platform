@@ -2,6 +2,7 @@
 import React from "react";
 import { FaUsers } from "react-icons/fa";
 import { GoClock } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const CourseCard = ({ course }) => {
     return (
@@ -30,7 +31,7 @@ const CourseCard = ({ course }) => {
 
                 {/* title */}
                 <h3 className="font-semibold text-[20px] md:text-xl text-gray-900 leading-snug mb-1 line-clamp-2">
-                    {course.title},<span className="text-sm text-gray-800">({course.level})</span>
+                    {course.title} <span className="text-sm text-gray-800">({course.level})</span>
                 </h3>
                 <p className="text-sm font-medium  text-gray-600 mb-2">
                     {course.description}
@@ -66,7 +67,7 @@ const CourseCard = ({ course }) => {
                     </div>
 
                     <div className="flex items-center gap-2 font-semibold">
-                        <p className="text-green-700">View Detail</p>
+                        <Link to={`/course/${course._id}`} className="text-green-700">View Detail</Link>
                     </div>
                 </div>
 

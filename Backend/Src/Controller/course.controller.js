@@ -1,9 +1,8 @@
 const courseModel = require('../model/course.model');
-const userModel = require('../model/userModels');
 const { uploadImage } = require('../services/imagekit.service')
 const createCourse = async (req, res) => {
     try {
-        const { title, description, price, level, category } = req.body;
+        const { title, description, price, level, category ,lesson : { topic, duration, assignment } } = req.body;
         const teacher = req.user.id;
 
         const file = req.file;
@@ -12,7 +11,7 @@ const createCourse = async (req, res) => {
         // console.log('files --> ',file);
 
         const created = await courseModel.create({
-            title, description, price, level, category, image: uploaded, teacher
+            title, description, price, level, category, image: uploaded, teacher, lesson:{ topic,  duration, assignment}
         })
         return res.status(201).json({ message: 'course created successfully', data: created })
     } catch (error) {

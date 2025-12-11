@@ -1,5 +1,5 @@
 import React from 'react'
-import CourseCard from '../Components/courseCard'
+import CourseCard from '../Components/courses/courseCard'
 import { useSelector } from 'react-redux'
 const Courses = () => {
   const courses = useSelector((state) => state.courseReducers.courses.course)

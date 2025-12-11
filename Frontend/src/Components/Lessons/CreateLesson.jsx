@@ -1,32 +1,31 @@
 import React from 'react'
-import { useForm ,Controller } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { asyncCreateCourse } from '../Store/courseAction'
+import { asyncCreateCourse, asyncCreateLesson } from '../../Store/courseAction'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
-import TinyMce from '../Components/TinyMce'
-const CreateLesson = ({ setopen }) => {
+import TinyMce from '../TinyMce'
+const CreateLesson = ({ setopen, id }) => {
 
-  const { register,control, reset, handleSubmit } = useForm();
+  const { register, control, reset, handleSubmit } = useForm();
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const submitHandler = (courseData) => {
-
+    if (!courseData.video || !courseData.video[0]) {
+      toast.error("Please select a video");
+      return;
+    }
     console.log(courseData);
-    
-
     const formData = new FormData();
-    formData.append('title', courseData.topic);
-    formData.append('price', courseData.duration);
+    formData.append('topic', courseData.topic);
+    formData.append('duration', courseData.duration);
     formData.append('assignment', courseData.assignment);
     // // ⚠️ yahan FileList ka first element bhejna hai
-    if (courseData.video && courseData.video[0]) {
-      formData.append('video', courseData.video[0]);
-    }
+    formData.append("video", courseData.video[0]);
     // console.log(video);
-    
-    // dispatch(asyncCreateCourse(formData));
+
+    dispatch(asyncCreateLesson(formData, id));
     setopen(false)
     // reset();
 
@@ -36,7 +35,7 @@ const CreateLesson = ({ setopen }) => {
   return (
     <div  >
       <div className='max-w-4xl bg-white lg:border-gray-200 border mb-15 items-center lg:w-full w-full  '>
-        <form onSubmit={handleSubmit(submitHandler)} className='flex flex-col  p-5 flex  rounded-xl '>
+        <form onSubmit={handleSubmit(submitHandler)} className='flex-col  p-5 flex  rounded-xl '>
 
           <h1 className='lg:text-3xl md:text-3xl text-xl font-bold tracking-tight  max-w-5xl  mx-auto text-center'>Create Lesson</h1>
 

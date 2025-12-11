@@ -20,9 +20,22 @@ export const asyncCreateCourse = (formData) => async (dispatch, getState) => {
             },
         });
         console.log(res);
-        
+
         dispatch(asyncLoadCourse())
 
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const asyncCreateLesson = (formData, id) => async (dispatch, getState) => {
+    try {
+        const res = await axios.put('/api/course/'+id+'/lesson', formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        })
+        console.log(res);
+        dispatch(asyncLoadCourse())
     } catch (error) {
         console.log(error);
     }

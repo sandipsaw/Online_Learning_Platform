@@ -7,8 +7,8 @@ import Quizes from '../Pages/Quizes'
 import Create from '../Pages/Create'
 import Login from '../Auth/Login'
 import Register from '../Auth/Register'
-import CourseDetail from '../Pages/CourseDetail'
-import CreateLesson from '../Components/CreateLesson'
+import CourseDetail from '../Components/courses/CourseDetail'
+// import DetailLesson from '../Components/Lessons/DetailLesson'
 
 const Mainroute = () => {
   return (
@@ -21,6 +21,8 @@ const Mainroute = () => {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/course/:CourseId' element={<CourseDetail/>}/>
+        {/* <Route path='/course/lession/:lessonId' element={<DetailLesson/>}/> */}
+        
       </Routes>
   )
 }

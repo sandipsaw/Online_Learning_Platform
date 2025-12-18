@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-src/images/blog.mp4
+# src/images/blog.mp4
 dist
 dist-ssr
 *.local

@@ -14,6 +14,7 @@
     "@tailwindcss/vite": "^4.1.17",
     "@tinymce/tinymce-react": "^6.3.0",
     "axios": "^1.13.2",
+    "dompurify": "^3.3.1",
     "nanoid": "^5.1.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

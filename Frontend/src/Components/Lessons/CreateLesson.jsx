@@ -5,6 +5,8 @@ import { asyncCreateCourse, asyncCreateLesson } from '../../Store/courseAction'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import TinyMce from '../TinyMce'
+import { AiOutlineClose } from "react-icons/ai";
+
 const CreateLesson = ({ setopen, id }) => {
 
   const { register, control, reset, handleSubmit } = useForm();
@@ -33,11 +35,21 @@ const CreateLesson = ({ setopen, id }) => {
 
   }
   return (
-    <div  >
-      <div className='max-w-4xl bg-white lg:border-gray-200 border mb-15 items-center lg:w-full w-full  '>
+    <div className='w-full '>
+      <div
+        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+      ></div>
+
+      <div className='max-w-4xl bg-white lg:border-gray-200 border items-center lg:w-full w-full fixed z-50 left-5/10 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full mt-7 rounded-xl shadow-2xl'>
+
         <form onSubmit={handleSubmit(submitHandler)} className='flex-col  p-5 flex  rounded-xl '>
 
-          <h1 className='lg:text-3xl md:text-3xl text-xl font-bold tracking-tight  max-w-5xl  mx-auto text-center'>Create Lesson</h1>
+          <button
+            onClick={() => setopen(false)}
+            className="absolute top-3 right-4 text-xl text-gray-500 hover:text-black"
+          >
+            <AiOutlineClose/>
+          </button>
 
           <input {...register('topic')} placeholder='topic' className=' mt-6 border px-4 py-2 rounded focus:border-blue-500 outline-none focus:ring-2 focus:ring-blue-300 bg-[#f4f7ff]' type='text' ></input>
 
@@ -61,6 +73,7 @@ const CreateLesson = ({ setopen, id }) => {
 
           <button className='mt-8 w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded text-sm tracking-wide transition '><p>Create Lesson</p></button>
         </form>
+
       </div>
 
     </div>

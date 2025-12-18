@@ -4,21 +4,55 @@ const { uploadBufferToB2 } = require('../services/backblaze.service')
 
 const createCourse = async (req, res) => {
     try {
-        const { title, description, price, level, category } = req.body;
+        const { title, description, price, level, category, topic, duration, assignment } = req.body;
         const teacher = req.user.id;
 
-        const file = req.file;
-        const uploaded = await uploadFile({ buffer: file.buffer });
+        let image = null;
+        let videoUrl = null;
 
-        const created = await courseModel.create({
-            title, description, price, level, category, image: uploaded, teacher
-        })
-        return res.status(201).json({ message: 'course created successfully', data: created })
+        const thumbnail = req.files?.thumbnail?.[0];
+        const video = req.files?.video?.[0];
+
+        // IMAGE UPLOAD
+        if (thumbnail) {
+            const uploadedImage = await uploadFile({
+                buffer: thumbnail.buffer
+            });
+
+            image = {
+                url: uploadedImage.url,
+                thumbnail: uploadedImage.thumbnail,
+                id: uploadedImage.id
+            };
+        }
+
+        // VIDEO UPLOAD
+        if (video) {
+            // const uploadedVideo = await uploadBufferToB2({
+            //     buffer: video.buffer,
+            //     fileName: video.originalname,
+            //     contentType: video.mimetype
+            // });
+            // videoUrl = uploadedVideo.url;
+            const uploadedVideo = await uploadFile({
+                buffer: video.buffer,
+            });
+            videoUrl=uploadedVideo.url
+        }
+
+        const created = await courseModel.create({title, description, price, level,category, image, teacher, lesson: { topic, video: videoUrl, duration, assignment }
+        });
+
+        return res.status(201).json({
+            message: 'course created successfully',
+            data: created
+        });
+
     } catch (error) {
         console.log(error);
-        return res.status(500).json({ message: 'internal server error' })
+        return res.status(500).json({ message: 'internal server error' });
     }
-}
+};
 
 const getCourses = async (req, res) => {
     try {
@@ -62,13 +96,13 @@ const addLessons = async (req, res) => {
             videoKey = uploaded.key;
         }
         // const uploaded = await uploadFile({ buffer: file.buffer });
-        console.log("-->",videoUrl);
-        
+        console.log("-->", videoUrl);
+
         const course = await courseModel.findByIdAndUpdate(
             req.params.id,
             {
                 $push: {
-                    lesson: { topic, video: videoUrl,videoKey, duration, assignment }
+                    lesson: { topic, video: videoUrl, videoKey, duration, assignment }
                 }
             },
             { new: true }

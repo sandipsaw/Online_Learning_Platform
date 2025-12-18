@@ -1,13 +1,15 @@
 import React from 'react'
 import image from '../images/file.png'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncCreateCourse } from '../Store/courseAction'
 import {toast} from 'react-toastify'
 import {useNavigate} from 'react-router-dom'
+import TinyMce from '../Components/TinyMce'
+
 const Create = () => {
 
-  const { register, reset, handleSubmit } = useForm();
+  const { register, control, reset, handleSubmit } = useForm();
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const submitHandler = (courseData) => {
@@ -21,7 +23,11 @@ const Create = () => {
     formData.append('price', courseData.price);
     formData.append('category', courseData.category);
     formData.append('level', courseData.level);
-
+    formData.append('topic', courseData.topic);
+    formData.append('duration', courseData.duration);
+    formData.append('assignment', courseData.assignment);
+    // // ⚠️ yahan FileList ka first element bhejna hai
+    formData.append("video", courseData.video[0]);
     // ⚠️ yahan FileList ka first element bhejna hai
     if (courseData.thumbnail && courseData.thumbnail[0]) {
       formData.append('thumbnail', courseData.thumbnail[0]);
@@ -40,7 +46,7 @@ const Create = () => {
 
       <p className='text-[20px] md:block lg:hidden hidden text-center pt-10 w-full leading-relaxed mx-auto max-w-5xl'> Customize your course with thumbnails, pricing, and categories to reach the right audience and build a powerful learning ecosystem.</p>
 
-      <div className='max-w-4xl bg-white lg:w-3/4 md:w-full justify-center lg:mt-15 md:mt-10  lg:border-gray-200 lg:shadow-md md:border-gray-200 md:shadow-md rounded-2xl mb-15'>
+      <div className='max-w-4xl bg-white lg:w-3/4 md:w-full justify-center   mb-15'>
 
         <form onSubmit={handleSubmit(submitHandler)} className='flex flex-col  w-full p-10  '>
 
@@ -48,6 +54,7 @@ const Create = () => {
 
           <label className='pb-2 mt-4 font-medium'>Title</label>
           <input {...register('title')} className='border px-4 py-2 rounded focus:border-blue-500 outline-none focus:ring-2 focus:ring-blue-300 bg-[#f4f7ff]' type='text' />
+
           <label className='pb-2 mt-4 font-medium'>Short Description</label>
           <input {...register('description')} className='border px-4 py-2 rounded focus:border-blue-500 outline-none focus:ring-2 focus:ring-blue-300 bg-[#f4f7ff]' type='text' />
 
@@ -91,6 +98,25 @@ const Create = () => {
             </label>
           </div>
 
+          <input {...register('topic')} placeholder='topic' className=' mt-6 border px-4 py-2 rounded focus:border-blue-500 outline-none focus:ring-2 focus:ring-blue-300 bg-[#f4f7ff]' type='text' ></input>
+
+          <label htmlFor="videoLesson" className='pb-2 font-medium mt-8 '>
+            <span className='px-5 py-2 border bg-[#f4f7ff] rounded'><span className='text-blue-600'>upload a video</span> or drag and drop</span>
+            <input {...register('video')} id="videoLesson" type='file' accept="video/*" capture="environment" className='hidden' />
+          </label>
+
+          <input {...register('duration')} placeholder='duration' className='border mt-6 mb-8 px-4 py-2 rounded focus:border-blue-500 outline-none focus:ring-2 focus:ring-blue-300 bg-[#f4f7ff]' type='text' ></input>
+
+          <Controller
+            name="assignment"
+            control={control}
+            render={({ field }) => (
+              <TinyMce
+                value={field.value}
+                onChange={field.onChange}
+              />
+            )}
+          />
 
           <button className='mt-8 w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded text-sm tracking-wide transition'><p>Create Courses</p></button>
         </form>

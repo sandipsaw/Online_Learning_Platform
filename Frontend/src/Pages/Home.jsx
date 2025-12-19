@@ -1,7 +1,6 @@
 import React from 'react'
 import header from '../images/header.png'
-// import quotes from '../images/doubleq.png'
-// import quotes from '../images/quotes.jpg'
+import WhyChooseUs from '../Components/WhyChooseUs';
 import std1 from '../images/std1.png'
 import Slider from "react-slick";
 import { FaUserGraduate, FaInfinity, FaAward, FaTags, FaProjectDiagram } from "react-icons/fa";
@@ -71,12 +70,12 @@ const Home = () => {
             <img className='lg:w-150 md:w-100 w-screen lg:ml-10 ' src={header} />
 
           </div>
-          <div className='lg:w-1/2 md:w-7/8 lg:ml-50 md:ml-10 -pt-16 lg:block md-block '>
-            <p className='lg:text-xl md:text-lg text-sm font-medium bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text'>Start your favouriate course</p>
-            <h1 className='lg:text-6xl md:text-4xl lg:max-w-2xl max-w-full text-4xl font-semibold font-sans lg:mt-3 mt-1 text-black '>Now learning from <br />anywhere and build <br className='lg:block' /> your <span className=' bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text'>bright Future</span></h1>
+          <div className='lg:w-1/2 md:w-7/8 lg:ml-50 md:ml-10 -pt-16 lg:block md-block flex flex-col lg:items-left items-center'>
+            <p className='lg:text-xl md:text-lg text-2xl md:text-left text-center mt-5 font-medium bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text font-satisfy'>Start your favouriate course</p>
+            <h1 className='lg:text-6xl md:text-4xl text-[32px] lg:max-w-2xl md:text-left text-center max-w-full text-4xl font-semibold font-sans lg:mt-3 mt-1 text-black '>Now Learning from Anywhere and Build your <span className=' bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text'>bright Future</span></h1>
 
-            <p className='lg:text-2xl md:text-xl text-sm text-md font-medium lg:mt-9 md:mt-4 lg:block md:block hidden lg:max-w-xl md:max-w-11/13 text-black'>Our mission is to help you discover the best learning resources and grow with expert-led courses.</p>
-            <button onClick={() => navigate('/courses')} className='lg:mt-5 md:mt-3 mt-4 lg:text-lg md:text-lg text-md "px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:px-5 md:py-2 px-3 py-2 lg:w-40 w-50 mb-4 cursor-pointer'>Start Learning</button>
+            <p className='lg:text-xl md:text-xl text-xl text-md font-medium lg:mt-9 md:mt-4 lg:block md:block  lg:max-w-xl md:max-w-11/13 text-black lg:px-0 px-5 mt-4 lg:text-left text-center'>Our mission is to help you discover the best learning resources and grow with expert-led courses.</p>
+            <button onClick={() => navigate('/courses')} className=' lg:mt-5 md:mt-3 mt-4 lg:text-lg md:text-lg text-md "px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:px-5 md:py-2 px-3 py-2 lg:w-60 w-50 mb-4 cursor-pointer'>Start Learning</button>
           </div>
         </div>
 
@@ -104,36 +103,36 @@ const Home = () => {
       {/* //------------------------------------------ Why Choose Us ------------------------------------------------------------- */}
       <div className='lg:mt-15 md:mt-10 mt-5'>
         <div className='text-center'>
-          <h1 className='lg:text-4xl md:text-3xl text-xl font-medium'>Why Choose Us</h1>
-          <p className='lg:text-lg md:text-md text-sm px-10'>Our Commitment to your wellness goes beyond just classes and training session.<br className='lg:block hidden' /> Discover the unique benifit that set us apart and ensure you have best experience on your learning journey</p>
+          <h1 className='lg:text-4xl md:text-3xl text-xl font-medium mb-3'>Growth & Career Focused</h1>
+          <p className='lg:text-lg lg:block md:block hidden md:text-md text-sm px-10 '>Our Commitment to your wellness goes beyond just classes and training session.<br className='lg:block hidden' /> Discover the unique benifit that set us apart and ensure you have best experience on your learning journey</p>
         </div>
 
-        <div className='flex lg:flex-row md:flex-row md:flex-wrap flex-col lg:justify-center lg:items:center justify-center items-center lg:gap-7 md:gap-10 gap-5 mt-5 text-[#3c3c3c]'>
+        <div className='flex lg:flex-row md:flex-row md:flex-wrap flex-col lg:justify-center lg:items:center justify-center items-center lg:gap-7 md:gap-10 gap-5 mt-5 text-[#3c3c3c] w-full px-5'>
 
-          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-blue-50 border-2 border-blue-400 '>
+          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-1/1 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-blue-50 border-2 border-blue-400 '>
             <div><FaUserGraduate size={50} className="text-blue-600 border rounded-full object-contain p-1 border-blue-200" /></div>
             <h1 className='mt-5 text-lg'>Learn From Experts</h1>
             <p className='text-center text-md mt-4'>All our courses are taught by experienced industry professionals who share real-world knowledge, practical examples, and career guidance.</p>
           </div>
 
-          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-orange-50 border-2 border-orange-400'>
+          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-1/1 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-orange-50 border-2 border-orange-400'>
             <div><FaAward size={50} className="text-orange-600 border rounded-full object-contain p-1 " /></div>
             <h1 className='mt-5 text-lg text-center'>Certificate After Completion</h1>
-            <p className='text-center text-md mt-4'>Receive a verified certificate when you complete the course. Add it to your resume or LinkedIn profile to showcase your skills to employers.</p>
+            <p className='text-center text-md mt-4'>Receive a verified certificate when you complete the course. Add it to your resume or LinkedIn profile to showcase your skills.</p>
           </div>
 
-          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-green-50 border-2 border-green-400'>
+          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-1/1 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-green-50 border-2 border-green-400'>
             <div><FaInfinity size={50} className="text-green-500 border rounded-full object-contain p-1 " /></div>
             <h1 className='mt-5 text-lg'>Lifetime Access</h1>
             <p className='text-center text-md mt-4'>Once enrolled, you get lifetime access to the course content, including free updates, so you can learn anytime and revisit lessons whenever needed.</p>
           </div>
 
-          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-pink-50 border-2 border-pink-400'>
+          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-1/1 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-pink-50 border-2 border-pink-400'>
             <div><FaTags size={50} className="text-pink-600 border rounded-full object-contain p-1 " /></div>
             <h1 className='mt-5 text-lg'>Affordable Pricing</h1>
             <p className='text-center text-md mt-4'>Our courses are priced to be student-friendly, offering high-quality education at lower rates without compromising value or content quality.</p>
           </div>
-          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-3/4 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-yellow-50 border-2 border-yellow-400'>
+          <div className='flex flex-col lg:w-1/6 md:w-4/10 w-1/1 p-5 lg:h-80 md:h-80 h-auto  border items-center  py-4 rounded-xl bg-yellow-50 border-2 border-yellow-400'>
             <div><FaProjectDiagram size={50} className="text-yellow-600 border rounded-full object-contain p-1 " /></div>
             <h1 className='mt-5 text-lg'>Hands-On Projects</h1>
             <p className='text-center text-md mt-4'>Every course includes real, practical projects to help you build a strong portfolio, gain experience, and become fully job-ready.</p>

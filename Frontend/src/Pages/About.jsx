@@ -8,7 +8,7 @@ const About = () => {
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-10 text-center">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
-          About <span className="text-indigo-600">Learnify</span>
+          About <span className="text-indigo-600">LearnSphere</span>
         </h1>
         <p className="mt-4 text-gray-600 text-sm md:text-lg max-w-3xl mx-auto">
           Learnify is an online learning platform designed to help students,

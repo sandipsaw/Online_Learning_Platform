@@ -1,6 +1,12 @@
 import React from 'react'
-// import { Clock, HelpCircle, CheckCircle, Award } from "lucide-react";
-
+import { VscQuestion } from "react-icons/vsc";
+import { FiClock } from "react-icons/fi";
+import { IoMdAddCircleOutline } from "react-icons/io";
+import { MdOutlineCheckCircle } from "react-icons/md";
+import { FaAward } from "react-icons/fa";
+import CreateQuizes from '../Components/Quizes/CreateQuizes';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const quizzes = [
   {
     id: 1,
@@ -21,7 +27,10 @@ const quizzes = [
 ];
 
 const Quizes = () => {
-
+  const [Open, setOpen] = useState(false)
+  const naviate = useNavigate()
+  console.log(Open);
+  
   return (
     <section className="bg-gray-50 min-h-screen py-16">
       <div className="max-w-7xl mx-auto px-6">
@@ -54,19 +63,19 @@ const Quizes = () => {
               {/* Quiz Info */}
               <div className="mt-5 grid grid-cols-2 gap-4 text-sm">
                 <div className="flex items-center gap-2 text-gray-600">
-                  {/* <HelpCircle size={18} /> */}
+                  <VscQuestion size={20} />
                   {quiz.questions} Questions
                 </div>
                 <div className="flex items-center gap-2 text-gray-600">
-                  {/* <Clock size={18} /> */}
+                  <FiClock size={18} />
                   {quiz.time}
                 </div>
                 <div className="flex items-center gap-2 text-gray-600">
-                  {/* <CheckCircle size={18} /> */}
+                  <MdOutlineCheckCircle size={18} />
                   Passing: {quiz.passing}
                 </div>
                 <div className="flex items-center gap-2 text-gray-600">
-                  {/* <Award size={18} /> */}
+                  <FaAward size={18} />
                   Certificate Eligible
                 </div>
               </div>
@@ -82,6 +91,7 @@ const Quizes = () => {
 
               {/* Action Button */}
               <button
+              onClick={()=>naviate('/quizes/:quizeId')}
                 className="
                   mt-6 w-full py-3
                   bg-indigo-600 text-white
@@ -96,8 +106,22 @@ const Quizes = () => {
           ))}
         </div>
 
+        {/* create quiz */}
+        <div 
+        onClick={()=>setOpen(true)} 
+        className="cursor-pointer bg-white border border-dashed border-indigo-400 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:bg-indigo-50 hover:shadow-md transition mt-15" >
+          <IoMdAddCircleOutline size={40} className="text-indigo-600" />
+          <h3 className="mt-3 text-lg font-semibold text-gray-900">
+            Create New Quiz
+          </h3>
+          <p className="mt-1 text-sm text-gray-500">
+            Tap to add questions and settings
+          </p>
+        </div>
+        {Open && <CreateQuizes setOpen={setOpen} />}
+
         {/* Tips Section */}
-        <div className="mt-16 bg-indigo-600 rounded-2xl p-8 text-white text-center">
+        <div className="mt-15 bg-indigo-600 rounded-2xl p-8 text-white text-center">
           <h3 className="text-xl md:text-2xl font-semibold">
             Quiz Tips for Success
           </h3>

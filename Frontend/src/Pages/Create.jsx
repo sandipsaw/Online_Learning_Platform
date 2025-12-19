@@ -46,13 +46,13 @@ const Create = () => {
 
       <p className='text-[20px] md:block lg:hidden hidden text-center pt-10 w-full leading-relaxed mx-auto max-w-5xl'> Customize your course with thumbnails, pricing, and categories to reach the right audience and build a powerful learning ecosystem.</p>
 
-      <div className='max-w-4xl bg-white lg:w-3/4 md:w-full justify-center   mb-15'>
+      <div className='max-w-4xl bg-white lg:w-3/4 md:w-full justify-center border rounded-xl mt-10   mb-15'>
 
         <form onSubmit={handleSubmit(submitHandler)} className='flex flex-col  w-full p-10  '>
 
           <h1 className=' block md:hidden lg:hidden lg:text-6xl md:text-4xl text-2xl font-bold tracking-tight max-w-5xl  mx-auto text-center'>Turn Your Knowledge Into a Professional Course</h1>
 
-          <label className='pb-2 mt-4 font-medium'>Title</label>
+          <label className='pb-2 font-medium'>Title</label>
           <input {...register('title')} className='border px-4 py-2 rounded focus:border-blue-500 outline-none focus:ring-2 focus:ring-blue-300 bg-[#f4f7ff]' type='text' />
 
           <label className='pb-2 mt-4 font-medium'>Short Description</label>
@@ -118,7 +118,7 @@ const Create = () => {
             )}
           />
 
-          <button className='mt-8 w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded text-sm tracking-wide transition'><p>Create Courses</p></button>
+          <button className='w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition mt-5'><p>Create Courses</p></button>
         </form>
       </div>
     </div>

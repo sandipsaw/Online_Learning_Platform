@@ -13,7 +13,7 @@ const App = () => {
     dispatch(asyncGetUser())
   },[])
   return (
-    <div className='mt-15'>
+    <div className='pt-15'>
       <Nav/>
       <Mainroute/>
       

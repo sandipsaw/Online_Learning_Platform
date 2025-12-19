@@ -8,7 +8,7 @@ import Create from '../Pages/Create'
 import Login from '../Auth/Login'
 import Register from '../Auth/Register'
 import CourseDetail from '../Components/courses/CourseDetail'
-
+import AttempQuiz from '../Components/Quizes/AttempQuiz'
 
 const Mainroute = () => {
   return (
@@ -17,10 +17,12 @@ const Mainroute = () => {
         <Route path='/about' element={<About />} />
         <Route path='/courses' element={<Courses />} />
         <Route path='/quizes' element={<Quizes />} />
+        <Route path='/quizes/:quizeId' element={<AttempQuiz />} />
         <Route path='/create/course' element={<Create />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/course/:CourseId' element={<CourseDetail/>}></Route>
+        
       </Routes>
   )
 }

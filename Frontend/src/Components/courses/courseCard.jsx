@@ -52,7 +52,7 @@ const CourseCard = ({ course }) => {
                     </div>
                 </div>
 
-                <div className="border rounded text-center py-2 mb-4 text-md font-semibold bg-green-500 text-white"><button>Enroll Now</button></div>
+                <div className="border rounded text-center py-2 mb-4 text-md font-semibold bg-blue-600 text-white"><button>Enroll Now</button></div>
             
 
                 <hr className="text-gray-500" />
@@ -67,7 +67,7 @@ const CourseCard = ({ course }) => {
                     </div>
 
                     <div className="flex items-center gap-2 font-semibold">
-                        <Link to={`/course/${course._id}`} className="text-green-700">View Detail</Link>
+                        <Link to={`/course/${course._id}`} className="text-blue-600">View Detail</Link>
                     </div>
                 </div>
 

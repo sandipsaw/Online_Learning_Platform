@@ -70,11 +70,11 @@ const Home = () => {
             <img className='lg:w-150 md:w-100 w-screen lg:ml-10 ' src={header} />
 
           </div>
-          <div className='lg:w-1/2 md:w-7/8 lg:ml-50 md:ml-10 -pt-16 lg:block md-block flex flex-col lg:items-left items-center'>
-            <p className='lg:text-xl md:text-lg text-2xl md:text-left text-center mt-5 font-medium bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text font-satisfy'>Start your favouriate course</p>
+          <div className='lg:w-1/2 md:w-7/8 lg:ml-50 md:ml-10 -pt-16 lg:block md-block flex flex-col lg:items-left md:items-left items-center'>
+            <p className='lg:text-xl md:text-lg text-2xl md:text-left  mt-5 font-medium bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text font-satisfy'>Start your favouriate course</p>
             <h1 className='lg:text-6xl md:text-4xl text-[32px] lg:max-w-2xl md:text-left text-center max-w-full text-4xl font-semibold font-sans lg:mt-3 mt-1 text-black '>Now Learning from Anywhere and Build your <span className=' bg-gradient-to-r from-blue-500 to-indigo-500 text-transparent bg-clip-text'>bright Future</span></h1>
 
-            <p className='lg:text-xl md:text-xl text-xl text-md font-medium lg:mt-9 md:mt-4 lg:block md:block  lg:max-w-xl md:max-w-11/13 text-black lg:px-0 px-5 mt-4 lg:text-left text-center'>Our mission is to help you discover the best learning resources and grow with expert-led courses.</p>
+            <p className='lg:text-xl md:text-xl text-xl md:text-left text-md font-medium lg:mt-9 md:mt-4 lg:block md:block  lg:max-w-xl md:max-w-11/13 text-black lg:px-0 px-5 mt-4 lg:text-left text-center'>Our mission is to help you discover the best learning resources and grow with expert-led courses.</p>
             <button onClick={() => navigate('/courses')} className=' lg:mt-5 md:mt-3 mt-4 lg:text-lg md:text-lg text-md "px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 md:px-5 md:py-3 px-3 py-2 lg:w-60 w-50 mb-4 cursor-pointer'>Start Learning</button>
           </div>
         </div>

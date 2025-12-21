@@ -5,12 +5,14 @@ import {asyncLoadCourse} from '../src/Store/courseAction'
 import { asyncGetUser } from './Store/userAction'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
+import { asyncLoadQuiz } from './Store/quizAction'
 
 const App = () => {
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(asyncLoadCourse())
     dispatch(asyncGetUser())
+    dispatch(asyncLoadQuiz())
   },[])
   return (
     <div className='pt-15'>

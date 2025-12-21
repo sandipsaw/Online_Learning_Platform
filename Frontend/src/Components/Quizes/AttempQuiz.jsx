@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { IoMdAddCircleOutline } from "react-icons/io";
+import CreateQuesOpt from "./CreateQuesOpt";
 
 const AttempQuiz = () => {
   const [selected, setSelected] = useState(null);
-
+  const [click, setclick] = useState(false)
   return (
-    <section className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
-      <div className="bg-white w-full max-w-3xl rounded-2xl shadow-md p-6 md:p-10">
-        
+    <section className={`min-h-screen bg-gray-50 flex ${click? "justify-left":"justify-center"} items-center px-4`}>
+      <div className="bg-white w-full  max-w-3xl rounded-2xl shadow-md p-6 md:p-10">
+
         {/* ===== Quiz Header ===== */}
         <div className="border-b pb-4 mb-6">
           <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
@@ -29,10 +31,9 @@ const AttempQuiz = () => {
               <label
                 key={index}
                 className={`flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition
-                  ${
-                    selected === option
-                      ? "border-indigo-600 bg-indigo-50"
-                      : "hover:bg-gray-50"
+                  ${selected === option
+                    ? "border-indigo-600 bg-indigo-50"
+                    : "hover:bg-gray-50"
                   }`}
               >
                 <input
@@ -65,7 +66,16 @@ const AttempQuiz = () => {
           </button>
         </div>
 
+
       </div>
+
+      <div onClick={()=>setclick(true)} className={`flex items-center flex-col p-5 shadow-sm rounded-xl fixed top-20 md:right-10 right-5 bg-white ${click ? "hidden" : "block"}`}>
+        <IoMdAddCircleOutline size={40} className="text-indigo-600" />
+        <p className="md:block hidden mt-3 text-lg font-semibold text-gray-800">create quiz </p>
+        <p className="md:block hidden mt-1 text-sm text-gray-500">Tap to add Question</p>
+      </div>
+      {click ? <CreateQuesOpt setclick={setclick} /> : " "} 
+
     </section>
   );
 }

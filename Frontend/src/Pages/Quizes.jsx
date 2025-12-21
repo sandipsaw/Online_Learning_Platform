@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { VscQuestion } from "react-icons/vsc";
 import { FiClock } from "react-icons/fi";
 import { IoMdAddCircleOutline } from "react-icons/io";
@@ -7,31 +7,31 @@ import { FaAward } from "react-icons/fa";
 import CreateQuizes from '../Components/Quizes/CreateQuizes';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { asyncLoadQuiz } from '../Store/quizAction';
+
 const quizzes = [
   {
-    id: 1,
-    title: "JavaScript Basics Quiz",
-    lesson: "Variables & Data Types",
-    questions: 10,
-    time: "15 min",
-    passing: "60%",
-  },
-  {
-    id: 2,
-    title: "React Fundamentals Quiz",
-    lesson: "Components & Props",
-    questions: 12,
-    time: "20 min",
-    passing: "65%",
-  },
-];
-
+    
+_id: 1,
+title:"JavaScript Basics Quiz",
+lesson: "Variable and Data Types",
+questions: 10,
+passing: 80,
+time:15,
+  }
+]
 const Quizes = () => {
   const [Open, setOpen] = useState(false)
   const naviate = useNavigate()
+  const dispatch = useDispatch()
   console.log(Open);
   
-  return (
+
+  const quizz = useSelector((state)=>state.quizReducers.quizes.quiz)
+  console.log(quizz);
+  
+  return quizz ? (
     <section className="bg-gray-50 min-h-screen py-16">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -47,9 +47,9 @@ const Quizes = () => {
 
         {/* Quiz Cards */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {quizzes.map((quiz) => (
+          {quizz && quizz.map((quiz) => (
             <div
-              key={quiz.id}
+              key={quiz._id}
               className="bg-white rounded-2xl border p-6 shadow-sm hover:shadow-md transition"
             >
               {/* Quiz Title */}
@@ -132,7 +132,7 @@ const Quizes = () => {
         </div>
       </div>
     </section>
-  );
+  ) : "loadding...";
 }
 
 export default Quizes

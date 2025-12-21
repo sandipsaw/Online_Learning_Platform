@@ -39,14 +39,14 @@ const Create = () => {
 
   }
   return (
-    <div className='lg:pt-10 md:pt-10 lg:pl-30 lg:pr-30 md:pl-15 md:pr-15 flex flex-col text-gray-800 items-center w-full h-full '>
+    <div className='lg:pt-10 md:pt-10 lg:pl-30 lg:pr-30 md:pl-15 md:pr-15 flex flex-col text-gray-800 items-center w-full h-full bg-gray-50 '>
       <h1 className='lg:block md:block hidden lg:text-6xl md:text-4xl text-3xl  tracking-tight font-bold  max-w-5xl  mx-auto text-center'>Turn Your Knowledge Into a Professional Course</h1>
       <p className='text-[20px] lg:block md:hidden hidden text-center pt-10 w-4/5 leading-relaxed mx-auto max-w-5xl'>Your skills have value — now is the time to monetize them.  Customize your course with thumbnails, pricing, and categories to reach the right audience and build a powerful learning ecosystem.</p>
 
 
       <p className='text-[20px] md:block lg:hidden hidden text-center pt-10 w-full leading-relaxed mx-auto max-w-5xl'> Customize your course with thumbnails, pricing, and categories to reach the right audience and build a powerful learning ecosystem.</p>
 
-      <div className='max-w-4xl bg-white lg:w-3/4 md:w-full justify-center border rounded-xl mt-10   mb-15'>
+      <div className='max-w-4xl bg-white lg:w-3/4 md:w-full justify-center  rounded-xl mt-10 shadow-sm  mb-15'>
 
         <form onSubmit={handleSubmit(submitHandler)} className='flex flex-col  w-full p-10  '>
 

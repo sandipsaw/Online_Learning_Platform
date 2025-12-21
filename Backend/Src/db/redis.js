@@ -9,4 +9,5 @@ const redis = new Redis({
 redis.on('connect',()=>{
     console.log("redis is now connected");
 })
+
 module.exports = redis;

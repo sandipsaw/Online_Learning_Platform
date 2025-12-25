@@ -91,7 +91,7 @@ const Quizes = () => {
 
               {/* Action Button */}
               <button
-              onClick={()=>naviate('/quizes/:quizeId')}
+              onClick={()=>naviate(`/quizes/${quiz._id}`)}
                 className="
                   mt-6 w-full py-3
                   bg-indigo-600 text-white

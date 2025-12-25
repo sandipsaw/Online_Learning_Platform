@@ -1,8 +1,8 @@
 import axios from '../Api/axios.config'
 import {loadQuiz} from '../Store/quizSlice'
-export const asyncCreateCourseCard = (data) => async (dispatch, getState) => {
+export const asyncCreateQuizCard = (data) => async (dispatch, getState) => {
     try {
-        const res = await axios.post('/api/quiz/create', data);
+        const res = await axios.post('/api/quiz/create/quizcard', data);
         dispatch(asyncLoadQuiz())
         console.log(res);
         
@@ -11,6 +11,12 @@ export const asyncCreateCourseCard = (data) => async (dispatch, getState) => {
     }
 }
 
+export const asyncCreateQuizQuestion = (data,id) => async(dispatch,getState)=>{
+    const res = await axios.put('/api/quiz/'+id+'/create/quizQuestion',data);
+    console.log(res);
+    dispatch(asyncLoadQuiz())
+    
+}
 export const asyncLoadQuiz = () => async (dispatch, getState) => {
     try {
         const {data} = await axios.get('/api/quiz/get')

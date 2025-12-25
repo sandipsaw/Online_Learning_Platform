@@ -1,6 +1,6 @@
 const quizModel = require('../model/quiz.model');
 
-const createQuiz = async (req, res) => {
+const createQuizCard = async (req, res) => {
     try {
         const teacher = req.user.id;
         const { title, lesson, questions, passing, time } = req.body
@@ -19,6 +19,21 @@ const createQuiz = async (req, res) => {
     }
 }
 
+const createQuiz = async (req, res) => {
+    const { question, optA, optB, optC, optD, ans } = req.body;
+    const quizes = await quizModel.findByIdAndUpdate(req.params.id,
+        {
+            $push: {
+                quiz: {question, optA, optB, optC, optD, ans }
+            },
+        },{new:true}
+    )
+
+    return res.status(201).json({
+        message:"quiz created successfully",
+        quizes
+    })
+}
 const getQuiz = async (req, res) => {
     try {
         const quiz = await quizModel.find()
@@ -32,4 +47,4 @@ const getQuiz = async (req, res) => {
     }
 }
 
-module.exports = { createQuiz, getQuiz }
+module.exports = { createQuiz, getQuiz,createQuizCard }

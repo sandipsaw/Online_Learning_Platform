@@ -1,11 +1,20 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import {useDispatch} from 'react-redux' 
 import { AiOutlineClose } from "react-icons/ai";
+import { useParams } from 'react-router-dom';
+import { asyncCreateQuizQuestion } from '../../Store/quizAction';
+
 const CreateQuesOpt = ({ setclick }) => {
+    const params = useParams();
+    const id = params.quizeId;
+    console.log(id);
+    
     const { register, reset, handleSubmit } = useForm()
-    const submitHandler = (xus) => {
-        console.log(xus);
-        
+    const dispatch = useDispatch()
+    const submitHandler = (data) => {
+        console.log(data);
+        dispatch(asyncCreateQuizQuestion(data,id));
     }
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-end bg-black/40  px-5">

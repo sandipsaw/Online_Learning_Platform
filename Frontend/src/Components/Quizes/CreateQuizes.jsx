@@ -2,13 +2,13 @@ import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import {useForm} from 'react-hook-form' 
 import {useDispatch} from 'react-redux'
-import { asyncCreateCourseCard } from "../../Store/quizAction";
+import { asyncCreateQuizCard } from "../../Store/quizAction";
 const CreateQuizes = ({ setOpen }) => {
   
   const {register,reset,handleSubmit} = useForm()
   const dispatch = useDispatch()
   const submitHandler = (data)=>{
-    dispatch(asyncCreateCourseCard(data))
+    dispatch(asyncCreateQuizCard(data))
     console.log(data)
     
 }

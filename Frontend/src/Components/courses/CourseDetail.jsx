@@ -22,8 +22,8 @@ const CourseDetail = () => {
 
   const [open, setopen] = useState(false)
 
-  return course ? (
-    <div className=''>
+  return courses ? (
+    <div className='w-full'>
       <button onClick={() => setopen(true)} className='px-5 py-4 text-green-100 bg-green-500 rounded-xl  top-20 right-2 fixed  z-1 cursor-pointer'><BsClipboardPlusFill className='text-2xl text-white ' /></button>
       {open ? <CreateLesson setopen={setopen} id={id} /> : ""}
 
@@ -43,22 +43,7 @@ const CourseDetail = () => {
             }}
           />
 
-          <div className='w-1/2 h-110 rounded border p-7 mt-20 text-zinc-800'>
-            <h1 className='text-2xl font-semibold text-blue-500'>Solve Questions</h1>
-            <hr className='h-0.5 my-3  bg-blue-500 border-0'/>
-            <h3 className='text-xl font-normal '>1. Which device is required for internet connection.</h3>
-            <ul className='flex flex-col gap-3  mt-3 '>
-              <li className='border py-2 pl-5 rounded border-blue-400'>A. Modem</li>
-              <li className='border py-2 pl-5 rounded border-blue-400'>B. Router</li>
-              <li className='border py-2 pl-5 rounded border-blue-400'>C. LAN Cable</li>
-              <li className='border py-2 pl-5 rounded border-blue-400'>D. Pen drive</li>
-            </ul>
-            <ul className='flex justify-around gap-5'>
-              <button className='border py-2 text-lg mt-3 rounded w-full bg-blue-600 text-white shadow-md hover:shadow-lg hover:scale-103 duration-300 '>Submit</button>
-            <button className='border py-2 text-lg mt-3 rounded w-full bg-purple-600 text-white shadow-md hover:shadow-lg hover:scale-103 duration-300'>Next</button>
-            </ul>
-            <p className='text-end my-3 text-blue-500'>1 of 5 question</p>
-          </div>
+          
 
         </div>
 
@@ -68,7 +53,9 @@ const CourseDetail = () => {
 
 
     </div>
-  ) : "loading..."
+  ) : (<div>
+    <button onClick={() => setopen(true)} className='px-5 py-4 text-green-100 bg-green-500 rounded-xl  top-20 right-2 fixed  z-1 cursor-pointer'><BsClipboardPlusFill className='text-2xl text-white ' /></button>
+  </div>)
 }
 
 export default CourseDetail

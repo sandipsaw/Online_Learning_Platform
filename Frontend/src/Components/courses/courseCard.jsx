@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const CourseCard = ({ course }) => {
     return (
-        <div className="bg-white rounded-2xl shadow-md hover:shadow-xl hover:scale-102 transition-all duration-300 overflow-hidden flex flex-col relative">
+        <div className="bg-white rounded-2xl shadow-md hover:shadow-xl hover:scale-102 transition-all duration-300 overflow-hidden flex flex-col relative border border-gray-400 ">
 
             <div>
                 <div>
@@ -25,7 +25,7 @@ const CourseCard = ({ course }) => {
             </div>
 
             {/* Content */}
-            <div className="flex-1 flex flex-col px-4 md:px-5 pt-3 pb-4">
+            <div className="flex-1 flex flex-col px-4 md:px-5 pt-3 pb-4 bg-black/3 border-black">
                 {/* author + date */}
 
 
@@ -54,7 +54,7 @@ const CourseCard = ({ course }) => {
                     </div>
                 </div>
 
-                <div className="border rounded text-center py-2 mb-4 text-md font-medium bg-indigo-600 text-white"><button>Enroll Now</button></div>
+                <div className="border rounded text-center py-3 mb-4 text-md text-blue-100 font-medium bg-indigo-600 "><button>Enroll Now</button></div>
 
 
                 <hr className="text-gray-500" />
